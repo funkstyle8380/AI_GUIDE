@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>더라운지 · 기획 AI 협업 가이드</title>
+<link rel="stylesheet" href="assets/style/presentation-theme.css">
+<style>.table-scroll{overflow-x:auto} .diagram-frame{overflow-x:auto} .diagram-frame svg{display:block;margin-inline:auto} details{margin-top:16px} summary{cursor:pointer} figcaption{line-height:1.7} @media(max-width:700px){.diagram-frame{margin-inline:0;padding:12px}.diagram-frame svg{min-width:430px}}
+/* 본문 주의·확인 사항: 기존 가이드 색상 토큰 사용 */
+.guide-callout{--callout-accent:var(--krds-primary-60);margin:28px 0;padding:22px 26px;background:var(--krds-primary-5);border:1px solid var(--krds-primary-20);border-inline-start:6px solid var(--callout-accent);border-radius:var(--krds-radius);break-inside:avoid;line-height:1.7}
+.guide-callout--warning{--callout-accent:var(--krds-point-50);background:var(--krds-point-5);border-color:var(--krds-point-50)}
+.guide-callout p,.guide-callout li{color:var(--krds-gray-90)}
+.guide-callout p{margin:0 0 12px;padding:0}
+.guide-callout p:last-child{margin-bottom:0}
+.guide-callout .guide-callout__title{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 14px;font-size:19px;font-weight:700;line-height:1.5}
+.guide-callout__badge{flex:none;display:inline-block;padding:2px 10px;border:1px solid currentColor;border-radius:4px;color:var(--callout-accent);font-size:14px;font-weight:700;letter-spacing:.02em}
+.guide-callout ul{margin:12px 0;padding-inline-start:24px}
+.guide-callout li+li{margin-top:8px}
+@media(max-width:700px){.guide-callout{padding:18px;margin:24px 0}.guide-callout .guide-callout__title{font-size:18px;gap:8px}}
+
+.planning-comment-template{margin:18px 0 24px;padding:20px 24px;border:1px solid var(--krds-gray-20);border-radius:var(--krds-radius);background:var(--krds-gray-5);color:var(--krds-gray-90);white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8}
+</style>
+</head><body><header><div class="type">PLANNING WORKFLOW · DRAFT</div><h1>기획 AI 협업 가이드</h1><p>기획자와 AI가 요구·현행 분석부터 IA·화면·정책 설계, 검수와 개발 전달까지 함께하는 공통 기획 프로세스</p></header><main><section id="purpose"><h2>1. 기획자와 AI가 함께하는 기획 프로세스</h2>
+<p>이 가이드는 <strong>기획자와 AI가 요구·현행 분석, IA 구성, 화면·정책 설계, 검수를 함께 진행하는 공통 기획 프로세스</strong>를 설명합니다. 기획자가 범위와 정책 판단을 맡고, AI가 자료 조사·대조, 초안 작성, 누락·충돌 점검을 지원합니다.</p>
+<p>현업 요구·AS-IS 화면·IA·공유된 결정을 함께 보고, 근거가 남는 산출물을 기준으로 작업합니다. AI가 만든 대조표·초안을 기획자가 확인하고, 정해지지 않은 정책은 결정 주체에게 묻고, 확인된 결과를 다음 단계로 넘깁니다.</p>
+<figure class="diagram-frame" aria-labelledby="collab-title"><svg class="collaboration-diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 618" role="img" aria-labelledby="collab-title collab-desc" style="width:100%;max-width:1000px;font-family:system-ui,sans-serif">
+<title id="collab-title">기획자와 AI가 함께하는 기획 프로세스</title><desc id="collab-desc">기획자가 범위와 정책 판단을 맡고 AI가 자료 조사·대조·초안·점검을 수행합니다. 단계마다 근거와 미정을 기록하고 검수 결과를 다음 작업으로 연결합니다.</desc>
+<defs><marker id="collab-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#246beb"/></marker></defs>
+<text x="90" y="40" text-anchor="middle" fill="#42526e" font-size="20">작업 흐름</text><text x="360" y="40" text-anchor="middle" fill="#172b4d" font-size="25" font-weight="700">기획자</text><text x="750" y="40" text-anchor="middle" fill="#172b4d" font-size="25" font-weight="700">AI</text>
+<rect x="190" y="65" width="340" height="100" rx="10" fill="#eef4ff" stroke="#b1c9fa"/><rect x="560" y="65" width="380" height="100" rx="10" fill="#eaf6f1" stroke="#a8d5c1"/>
+<text x="90" y="120" text-anchor="middle" fill="#172b4d" font-size="22" font-weight="700">1. 요구·현행 분석</text>
+<g text-anchor="middle" fill="#172b4d" font-size="20"><text x="360" y="106">목표·범위·자료 전달</text><text x="750" y="106">요구·AS-IS 자료 조사</text></g>
+<g text-anchor="middle" fill="#42526e" font-size="18"><text x="360" y="138">결정 주체·우선순위 판단</text><text x="750" y="138">요구 목록·충돌·질문 정리</text></g>
+<path d="M535 115 H553" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#collab-arrow)"/>
+<path d="M90 140 V197" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#collab-arrow)"/>
+<rect x="190" y="187" width="340" height="100" rx="10" fill="#eef4ff" stroke="#b1c9fa"/><rect x="560" y="187" width="380" height="100" rx="10" fill="#eaf6f1" stroke="#a8d5c1"/>
+<text x="90" y="242" text-anchor="middle" fill="#172b4d" font-size="22" font-weight="700">2. IA 구성·대조</text>
+<g text-anchor="middle" fill="#172b4d" font-size="20"><text x="360" y="228">화면 단위·ID 기준 확정</text><text x="750" y="228">AS-IS↔TO-BE 대조·판정</text></g>
+<g text-anchor="middle" fill="#42526e" font-size="18"><text x="360" y="260">누락 처리 방향 판단</text><text x="750" y="260">근거·신뢰도·품질 이슈 기록</text></g>
+<path d="M535 237 H553" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#collab-arrow)"/>
+<path d="M90 262 V319" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#collab-arrow)"/>
+<rect x="190" y="309" width="340" height="100" rx="10" fill="#eef4ff" stroke="#b1c9fa"/><rect x="560" y="309" width="380" height="100" rx="10" fill="#eaf6f1" stroke="#a8d5c1"/>
+<text x="90" y="364" text-anchor="middle" fill="#172b4d" font-size="22" font-weight="700">3. 화면·정책 설계</text>
+<g text-anchor="middle" fill="#172b4d" font-size="20"><text x="360" y="350">화면 흐름·정책 판단</text><text x="750" y="350">설계서·정책 초안 작성</text></g>
+<g text-anchor="middle" fill="#42526e" font-size="18"><text x="360" y="382">현업 확인·결정 반영</text><text x="750" y="382">상태·예외·미정 점검</text></g>
+<path d="M535 359 H553" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#collab-arrow)"/>
+<path d="M90 384 V441" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#collab-arrow)"/>
+<rect x="190" y="431" width="340" height="100" rx="10" fill="#eef4ff" stroke="#b1c9fa"/><rect x="560" y="431" width="380" height="100" rx="10" fill="#eaf6f1" stroke="#a8d5c1"/>
+<text x="90" y="486" text-anchor="middle" fill="#172b4d" font-size="22" font-weight="700">4. 검수·전달</text>
+<g text-anchor="middle" fill="#172b4d" font-size="20"><text x="360" y="472">전달 범위·완료 판단</text><text x="750" y="472">요구·IA·정책 대조 검수</text></g>
+<g text-anchor="middle" fill="#42526e" font-size="18"><text x="360" y="504">현업 승인·개발 전달</text><text x="750" y="504">결함·미정·영향 정리</text></g>
+<path d="M535 481 H553" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#collab-arrow)"/>
+<rect x="190" y="553" width="750" height="56" rx="10" fill="#fff8e6" stroke="#f0c36d"/><text x="565" y="588" text-anchor="middle" fill="#172b4d" font-size="19">공유 기록: 근거·판정·결정·검수 결과를 남겨 다음 작업과 담당으로 연결</text>
+</svg><figcaption>기획자와 AI가 같은 자료와 근거를 보며 협업합니다. 판정이 불확실하면 신뢰도를 남기고, 미정은 결정 주체에게 연결하며, 결과를 공유 기록으로 이어갑니다.</figcaption></figure>
+<h3 id="evidence-collaboration">근거가 남는 산출물을 기준으로 협업하기</h3>
+<p>대조표·설계서의 각 행이 어느 파일·시트·슬라이드에서 나왔는지 남기면, 기획자는 AI 결과를 빠르게 확인하고 다른 담당자는 같은 근거로 이어서 작업할 수 있습니다. 산출물 양식과 화면 ID 체계는 프로젝트에서 합의한 기준을 따릅니다.</p>
+<ol><li><strong>시작할 때:</strong> 대상 파일의 버전과 이전 검토 결과를 확인해 어디서부터 이어가는지 정합니다.</li><li><strong>작성할 때:</strong> AI가 자료를 읽어 초안·대조표를 만들고, 행마다 근거와 판정 신뢰도를 남깁니다.</li><li><strong>확인할 때:</strong> 기획자가 신뢰도 낮은 판정과 결정 필요 항목을 먼저 보고, 정책 판단이 필요한 항목은 결정 주체에게 연결합니다.</li><li><strong>마칠 때:</strong> 산출물 위치·버전, 검수 결과, 남은 결정과 다음 담당을 기록합니다. AI의 완료 보고만으로 검토 완료를 판단하지 않습니다.</li></ol>
+
+<h3 id="quick-start">협업 시작하기</h3>
+<p>아래 경로와 작업 범위를 채워 AI에 전달합니다. 엑셀·PPT부터 검토한다면 Figma 연결을 먼저 구성할 필요는 없습니다. 공유 기록 위치는 팀이 쓰는 기준 위치를 연결합니다.</p>
+<pre class="hljs"><code data-language="text">가이드: &lt;plan_guide 경로&gt;
+기획 자료: &lt;IA 엑셀 파일·시트·버전 / PPT 파일·슬라이드 / Figma 링크&gt;
+현행(AS-IS) 자료: &lt;현행 IA·화면 캡처 / 없다면 없음&gt;
+공유 기록: &lt;결정·IA 최신본·확인 요청 목록의 기준 위치 / 미정이면 기획PL과 확인&gt;
+프로젝트 문서: &lt;용어집·ID 규칙 등 기존 문서 / 없다면 없음&gt;
+요청 범위: &lt;현행 분석 / IA 구성·대조 / 화면·정책 설계 / 검수&gt;
+
+지정한 가이드의 AGENTS.md를 직접 읽고, 필요한 SKILL.md를 링크에서 읽어 적용해줘.
+등록된 호출 명령은 가정하지 마.
+자료의 시트·행·슬라이드 범위를 먼저 확인하고 읽지 못한 부분을 알려줘.
+결과의 각 항목에 근거 위치를 남기고, 확인됨·추정·미확인·충돌을 구분해줘.
+원본은 수정하지 말고 결과는 별도 파일로 만들어줘.
+정책 판단이 필요한 항목은 결정 주체별 질문으로 정리하고,
+산출물 위치·남은 확인·다음 작업을 기록해줘.</code></pre>
+<p>가이드 복사본의 갱신과 프로젝트 기록 관리는 <a href="workflow/README.md#shared-records">공유 기록·가이드 갱신 기준</a>을 따릅니다. 가이드는 산출물 폴더 밖에 두어도 되며, 새 대화나 작업 재개 시 위 경로를 다시 전달합니다.</p>
+
+<h3 id="input">자료 형식별로 전달하는 방법</h3>
+<p>기획 자료는 엑셀 IA·대조표, PPT 보고서, Figma 화면설계, 회의록·메일로 흩어져 있습니다. 형식마다 AI가 놓치기 쉬운 부분이 다르므로 <strong>파일명·버전과 읽을 범위</strong>를 함께 지정합니다.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">자료</th><th scope="col">함께 전달할 것</th><th scope="col">놓치기 쉬운 부분</th></tr></thead><tbody>
+<tr><td><strong>엑셀 IA·대조표</strong></td><td>파일명·버전, 대상 시트, 머리글 행, 비교할 열</td><td>숨김 시트·행, 필터 상태, 병합 셀의 상위 메뉴명, 표지의 총 본수와 실제 행 수 차이</td></tr>
+<tr><td><strong>PPT 보고서·기획서</strong></td><td>파일명·버전, 슬라이드 번호·제목, 대상 기능</td><td>이미지 안의 글자, 발표자 노트, 슬라이드마다 다르게 적힌 일정·범위</td></tr>
+<tr><td><strong>Figma 화면설계</strong></td><td>화면·프레임 링크 또는 메뉴 범위, 검토 목적</td><td>주석·상태 화면·프로토타입 연결, 권한·호출 한도로 일부만 읽힌 경우</td></tr>
+<tr><td><strong>회의록·현업 메일</strong></td><td>일자·참석 주체, 관련 메뉴</td><td>결정인지 의견인지 구분, 이후 회의에서 바뀐 내용</td></tr>
+</tbody></table></div>
+<aside class="guide-callout guide-callout--warning" aria-labelledby="xlsx-warning"><p class="guide-callout__title" id="xlsx-warning"><span class="guide-callout__badge">주의</span>엑셀 파일을 열었다고 모든 시트를 읽은 것은 아닙니다</p><p>AI 도구는 첫 시트만 읽거나, 숨김 시트·필터로 가려진 행을 건너뛰거나, 병합 셀을 빈 값으로 읽을 수 있습니다. <strong>시트 목록과 시트별 행 수를 먼저 보고하게 하고</strong>, 결과의 건수가 원본과 맞는지 확인합니다.</p><p>요청한 시트가 없을 때 비슷한 이름의 시트로 대체했다면 어떤 시트를 썼는지 결과에 남겨야 합니다.</p></aside>
+<p><strong>AI 요청 예시</strong></p>
+<div class="planning-comment-template" role="group" aria-label="엑셀 IA 대조 요청 예시">AS-IS: &lt;파일명·버전 / 시트&gt;
+TO-BE: &lt;파일명·버전 / 시트&gt;
+범위: &lt;영역·메뉴 / 채널&gt;
+lounge-plan-ia로 두 IA를 화면 단위로 대조해줘.
+먼저 양쪽 시트의 머리글·행 수·숨김/필터 상태를 알려줘.
+판정마다 근거와 신뢰도를 남기고, AS-IS만 남는 화면은 처리 방향을 붙여줘.
+원본은 고치지 말고 결과 파일에 원본 파일명·버전을 표기해줘.</div>
+<p>AI의 상세 읽기 기준은 <a href="workflow/planning.md#xlsx-input">엑셀</a> · <a href="workflow/planning.md#ppt-input">PPT</a> · <a href="workflow/planning.md#figma-input">Figma</a> 기준에 있습니다.</p>
+
+<h3>AI 도구·MCP·스킬의 역할</h3>
+<p>기획자는 AI 도구에 작업을 요청합니다. AI 도구는 스킬의 지침을 적용하고, 연결된 도구로 파일을 읽거나 결과 파일을 만듭니다.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">구성</th><th scope="col">역할</th><th scope="col">기획 작업에서의 예</th></tr></thead><tbody>
+<tr><td><strong>스킬</strong></td><td>작업 순서와 판단 기준</td><td>IA 대조 시 판정 기준·신뢰도·결과 시트 구성</td></tr>
+<tr><td><strong>MCP</strong></td><td>외부 도구·자료를 AI 도구에 연결</td><td>Figma 화면 읽기, 문서 도구·드라이브 접근</td></tr>
+<tr><td><strong>파일 도구</strong></td><td>로컬·공유 폴더의 파일 읽기·쓰기</td><td>엑셀·PPT 읽기, 대조표 파일 생성</td></tr>
+<tr><td><strong>하네스</strong></td><td>AI와 위 도구·권한·설정을 묶은 작업 환경</td><td>개인별 AI 도구 설정과 연결 상태</td></tr>
+</tbody></table></div>
+<p>스킬 파일이나 Figma 링크를 전달하는 것과 실제 자료에 접근할 도구·권한을 준비하는 것은 별개입니다. 처음에는 작은 화면 하나, 시트 하나로 실제 읽기를 확인합니다.</p>
+
+<h3 id="ai-context">컨텍스트: AI가 현재 작업에서 참고하는 정보 범위</h3>
+<p>컨텍스트는 AI가 현재 답변을 만들 때 함께 참고하는 <strong>작업 공간</strong>입니다. 대화, 지침·스킬, 읽은 엑셀·PPT·화면 내용이 여기에 들어갑니다. IA 수백 행과 보고서 수십 장을 한꺼번에 넣으면 앞에서 확인한 조건을 놓치거나 결과 일부가 빠질 수 있으므로, <strong>한 번 읽은 내용을 끝까지 모두 기억한다고 가정하지 않습니다.</strong></p>
+<div class="table-scroll"><table><thead><tr><th scope="col">전달 방식</th><th scope="col">장점·적합한 작업</th><th scope="col">단점·보완 방법</th></tr></thead><tbody>
+<tr><td><strong>화면·시트 하나</strong><br>대상 화면 링크나 시트·행 범위를 지정</td><td>범위가 명확해 빠르게 확인할 수 있습니다. 상세 설계·특정 화면 보완·작은 수정에 적합합니다.</td><td>진입 조건·전후 화면·공통 정책이 빠질 수 있습니다. 관련 화면을 추가로 지정하거나 AI가 찾아 확인하도록 범위를 줍니다.</td></tr>
+<tr><td><strong>메뉴·영역 전체</strong><br>메뉴 범위와 검토 목적을 함께 전달</td><td>메뉴 사이 흐름·정책·누락을 비교하기 좋습니다. IA 대조와 메뉴 단위 설계에 필요합니다.</td><td>읽는 양이 커서 시간·사용량이 늘고 누락이 생기기 쉽습니다. 구조를 먼저 보고 화면 묶음별로 나눠 확인하며 결과를 기록합니다.</td></tr>
+</tbody></table></div>
+<p><strong>메뉴 전체를 맡길 때</strong></p>
+<div class="planning-comment-template" role="group" aria-label="메뉴 전체를 나누어 검토하는 요청">대상: &lt;IA 파일·시트 / Figma 메뉴 링크&gt;
+범위: &lt;예: BO 마케팅 메뉴의 프로모션·쿠폰 화면&gt;
+먼저 메뉴 구조와 화면 목록을 파악하고, 화면 묶음으로 나눠줘.
+&lt;우선 검토할 묶음&gt;부터 상세히 읽고, 묶음마다 결과를 기록한 뒤 다음으로 넘어가줘.
+각 묶음의 근거 위치·확인한 정책·미정 질문·미확인 범위를 남겨줘.</div>
+<p><strong>권장 순서:</strong> 구조·화면 목록 확인 → 우선 화면 묶음 상세 확인 → 근거·미정 기록 → 다음 묶음 → 마지막에 묶음 사이 정책·흐름 대조. 구조만 본 상태와 상세 검토 완료를 구분합니다.</p>
+</section><hr><section id="structure"><h2>2. 문서 구조와 진입점</h2>
+<p>기획자는 이 HTML에서 전체 작업 방식을 확인하고, AI는 <code>AGENTS.md</code>에서 요청에 맞는 스킬을 고릅니다. 작업·기획 기준은 Markdown 한 곳에서 관리하고 이 안내에서 연결합니다.</p>
+<pre class="hljs"><code data-language="text">plan_guide/
+├── index.html                 기획자용 안내
+├── AGENTS.md                  시작 지침·스킬 선택
+├── assets/                    공통 테마·목차
+└── workflow/
+    ├── README.md              작업 순서·완료 기준·공유 기록
+    ├── planning.md            자료 읽기·IA·설계·정책·검수 기준
+    ├── project-docs.md        프로젝트 기획 문서 운영
+    ├── decisions.md           결정 기록·확인 요청 양식
+    ├── task-template.md       작업 기록 양식
+    ├── tasks/                 실제 작업 기록(팀이 정한 경우)
+    └── skills/                분석·IA·설계·검수</code></pre><figure class="diagram-frame" aria-label="최소 문서 구조"><div class="mermaid-rendered"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" role="img" aria-label="최소 문서 구조" style="width:100%;max-width:1000px;font-family:system-ui,sans-serif">
+<defs><marker id="structure-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#246beb"/></marker></defs>
+<path d="M500 76 V114" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#structure-arrow)"/>
+<path d="M400 176 L190 224" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#structure-arrow)"/>
+<path d="M500 176 V224" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#structure-arrow)"/>
+<path d="M600 176 L810 224" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#structure-arrow)"/>
+<path d="M650 265 H674" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#structure-arrow)"/>
+<rect x="330" y="20" width="340" height="56" rx="10" fill="#eef4ff" stroke="#b1c9fa"/>
+<text x="500.0" y="42.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">AGENTS.md</text>
+<text x="500.0" y="66.0" text-anchor="middle" fill="#172b4d" font-size="15">요청별 스킬 선택</text>
+<rect x="250" y="120" width="500" height="56" rx="10" fill="#eaf6f1" stroke="#a8d5c1"/>
+<text x="500.0" y="154.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">분석 · IA · 화면/정책 설계 · 검수</text>
+<rect x="20" y="230" width="300" height="70" rx="10" fill="#f4f5f7" stroke="#c1c7d0"/>
+<text x="170.0" y="259.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">README · planning</text>
+<text x="170.0" y="283.0" text-anchor="middle" fill="#172b4d" font-size="15">작업·기획 기준</text>
+<rect x="350" y="230" width="300" height="70" rx="10" fill="#fff8e6" stroke="#f0c36d"/>
+<text x="500.0" y="259.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">decisions</text>
+<text x="500.0" y="283.0" text-anchor="middle" fill="#172b4d" font-size="15">미정 질문·확인 요청·결정</text>
+<rect x="680" y="230" width="300" height="70" rx="10" fill="#f4f5f7" stroke="#c1c7d0"/>
+<text x="830.0" y="259.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">tasks</text>
+<text x="830.0" y="283.0" text-anchor="middle" fill="#172b4d" font-size="15">범위·산출물·검수 결과</text>
+</svg></div><details><summary>Mermaid 원문</summary><pre class="hljs"><code data-language="mermaid">flowchart TD
+ A[&quot;AGENTS.md: 요청별 스킬 선택&quot;] --&gt; S[&quot;분석 · IA · 화면/정책 설계 · 검수&quot;]
+ S --&gt; C[&quot;README·planning: 작업·기획 기준&quot;]
+ S --&gt; D[&quot;decisions: 미정 질문·확인 요청·결정&quot;]
+ S --&gt; T[&quot;tasks: 범위·산출물·검수 결과&quot;]
+ D --&gt; T</code></pre></details><figcaption>시작 지침은 루트 한 곳에 두고, 단계별 결과는 작업 기록과 결정 기록으로 연결합니다.</figcaption></figure><p><a href="AGENTS.md">시작 지침</a> · <a href="workflow/planning.md">기획 기준</a> · <a href="workflow/task-template.md">작업 양식</a></p><p>폴더 전체로 독립해서 사용합니다. 실제 IA·설계서·보고서는 기존 공유 위치에 두고, 이 가이드에는 양식과 일반 기준만 둡니다.</p>
+<h3 id="project-docs">권장 확장: 반복되는 기준을 프로젝트 기획 문서로 정리하기</h3>
+<p>메뉴와 참여자가 늘어나면 <strong>용어·화면 ID 규칙·공통 정책을 프로젝트 문서로 정리하고 AI가 필요한 부분만 참조하게 하는 방식</strong>을 권장합니다. 같은 설명을 매번 반복하지 않고, 다른 기획자나 새 AI 대화에서도 같은 기준으로 이어서 작업하기 위한 기반입니다.</p>
+<div class="table-scroll"><table><thead><tr><th>구분</th><th>담는 내용</th><th>관리 주체</th></tr></thead><tbody>
+<tr><td>공용 plan_guide</td><td>분석·IA·설계·검수의 공통 방법과 양식</td><td>공용 가이드 관리 담당</td></tr>
+<tr><td>프로젝트 기획 문서</td><td>용어집·ID 규칙·공통 정책·산출물 최신본 위치</td><td>기획PL</td></tr>
+<tr><td>결정·작업 기록</td><td>결정 이유·상태·변경 범위·검수 결과·다음 담당</td><td>팀이 정한 공유 기록 위치</td></tr>
+</tbody></table></div>
+<div class="table-scroll"><table><thead><tr><th>반복되는 상황</th><th>먼저 정리할 문서</th><th>다음 작업에서의 쓰임</th></tr></thead><tbody>
+<tr><td>화면 ID·모듈 코드를 매번 설명함</td><td>ID 규칙·모듈 목록·채널 표기</td><td>IA·설계서·대조표의 ID 일치</td></tr>
+<tr><td>같은 용어를 사람마다 다르게 씀</td><td>용어집</td><td>화면 문구·정책 문장의 일관성</td></tr>
+<tr><td>승인·취소·노출 규칙을 여러 메뉴에서 씀</td><td>공통 정책 정의</td><td>메뉴별로 다른 규칙이 생기는 일 방지</td></tr>
+<tr><td>최신본이 어느 파일인지 헷갈림</td><td>산출물 목록(파일·버전·위치·담당)</td><td>잘못된 버전으로 작업하는 일 방지</td></tr>
+</tbody></table></div>
+<p>운영 방법과 AI 요청 예시는 <a href="workflow/project-docs.md">프로젝트 기획 문서 운영</a>에 있습니다.</p>
+</section><hr><section id="ia"><h2>3. 현행 분석과 IA 대조</h2>
+<p>IA는 설계·개발·테스트 범위를 세는 기준입니다. 한 행이 하나의 화면 상태를 뜻하도록 정리해야 AS-IS와 TO-BE를 같은 단위로 비교할 수 있습니다.</p>
+<h3 id="ia-unit">화면 단위로 정리하는 기준</h3>
+<div class="table-scroll"><table><thead><tr><th scope="col">대상</th><th scope="col">처리</th></tr></thead><tbody>
+<tr><td>일반 화면·레이어 팝업·바텀시트</td><td>화면으로 등록합니다.</td></tr>
+<tr><td>외부 화면(PG 결제창·본인인증·외부 링크)</td><td>제외하거나 '외부'로 구분합니다.</td></tr>
+<tr><td>화면 없는 로직(자동 로그인·리다이렉트·배치)</td><td>제외하고 관련 화면 비고에 남깁니다.</td></tr>
+<tr><td>공통 컴포넌트(GNB·탭바·배너 영역)</td><td>공통 항목이나 상위 화면 비고로 둡니다.</td></tr>
+<tr><td>두 메뉴에서 진입하는 같은 화면</td><td>하나로 통합하고 진입 경로를 비고에 적습니다.</td></tr>
+<tr><td>백업·빈 페이지·404</td><td>정리 대상 목록으로 따로 둡니다.</td></tr>
+</tbody></table></div>
+<p>제외·통합한 항목은 지우지 않고 별도 시트에 사유와 함께 남깁니다. 앱(MA)·PC웹(PW)·모바일웹(MW)처럼 채널이 나뉘면 화면을 복제하지 않고 채널을 열로 표시합니다.</p>
+<h3 id="asis-tobe">AS-IS↔TO-BE 대조 판정</h3>
+<div class="table-scroll"><table><thead><tr><th scope="col">판정</th><th scope="col">기준</th><th scope="col">함께 남길 것</th></tr></thead><tbody>
+<tr><td><strong>일치</strong></td><td>화면명·기능이 같음</td><td>양쪽 ID</td></tr>
+<tr><td><strong>명칭 변경</strong></td><td>기능은 같고 이름만 다름</td><td>판단 근거</td></tr>
+<tr><td><strong>통합</strong></td><td>여러 AS-IS 화면이 TO-BE 한 화면으로 합쳐짐</td><td>통합 방식(탭·필터·팝업)</td></tr>
+<tr><td><strong>AS-IS만</strong></td><td>TO-BE에서 대응 화면을 찾지 못함</td><td>처리 방향: 반영 / 의도적 제외 / 결정 필요</td></tr>
+<tr><td><strong>TO-BE만</strong></td><td>AS-IS에 없는 신규 화면</td><td>신규 요구 근거</td></tr>
+</tbody></table></div>
+<aside class="guide-callout guide-callout--check" aria-labelledby="asis-only-check"><p class="guide-callout__title" id="asis-only-check"><span class="guide-callout__badge">확인</span>'AS-IS만'은 곧바로 누락이 아닙니다</p><p>의도적으로 없앤 기능일 수 있습니다. 보고서나 결정 기록에 제외 근거가 있을 때만 '의도적 제외'로 두고, 근거가 없으면 <strong>결정 필요</strong>로 남깁니다.</p><p>화면 설명 없이 메뉴명만 보고 판정했다면 신뢰도를 '낮음'으로 표시합니다. 기획자는 신뢰도 낮은 판정부터 확인합니다.</p></aside>
+<p>대조 중 발견한 TO-BE IA의 품질 이슈(ID 중복, 같은 화면의 다중 모듈 정의, 하위가 정의되지 않은 메뉴)는 원본을 고치지 않고 별도 목록으로 남겨 IA 담당에게 전달합니다. 상세 절차는 <a href="workflow/skills/lounge-plan-ia/SKILL.md">IA 구성·대조 스킬</a>에 있습니다.</p>
+</section><hr><section id="spec"><h2>4. 화면설계와 정책 정의</h2>
+<p>화면설계서는 개발·디자인·QA가 같은 화면을 같은 의미로 읽게 만드는 문서입니다. 여러 화면에서 쓰는 업무 규칙은 정책 정의로 분리하고, 화면설계서에서는 정책 ID로 참조합니다.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">항목</th><th scope="col">확인할 내용</th></tr></thead><tbody>
+<tr><td>화면 정보</td><td>화면 ID·명칭·채널·진입 경로·이전/다음 화면</td></tr>
+<tr><td>구성 요소</td><td>영역별 요소, 표시 데이터와 출처, 정렬·검색·페이징</td></tr>
+<tr><td>상태</td><td>초기·로딩·데이터 없음·오류·권한 없음·점검</td></tr>
+<tr><td>동작</td><td>버튼별 결과, 확인 팝업, 성공·실패 메시지</td></tr>
+<tr><td>입력 검증</td><td>필수 여부·형식·길이·중복 확인·오류 문구</td></tr>
+<tr><td>정책 참조</td><td>적용 정책 ID와 화면 내 반영 위치</td></tr>
+<tr><td>미정</td><td>결정 필요 항목·결정 주체·임시 가정</td></tr>
+</tbody></table></div>
+<p>정책 문장은 <strong>"~할 수 있다 / 없다"처럼 판정 가능하게</strong> 씁니다. "적절히", "필요시" 같은 표현은 결정 질문으로 바꿉니다. 상태가 있는 대상(이용권·주문·프로모션·승인 요청)은 상태 목록과 전이 조건을 표로 정리하고, 상태마다 화면에 보이는 버튼·문구를 연결합니다.</p>
+<h3 id="request-template">현업 확인 요청 — 사람·AI 공통 양식</h3>
+<p>자료만으로 정할 수 없는 정책은 아래 양식으로 결정 주체에게 묻습니다. 보내기 전에 관련 IA·설계서·결정·이전 요청에 이미 답이 있는지 확인하고, 한 요청에는 함께 결정할 한 가지 주제만 담습니다.</p>
+<div class="planning-comment-template" role="group" aria-label="현업 확인 요청 양식">[기획 확인 요청] &lt;메뉴·기능&gt; — &lt;결정할 항목&gt;
+대상: &lt;화면 ID·화면명 / 정책 ID&gt;
+현재 확인: &lt;자료에서 확인한 내용과 근거 위치&gt;
+확인 요청: &lt;실제 상황과 결정할 질문, 선택지가 있으면 선택지&gt;
+기획 반영 위치: &lt;결정 후 수정할 IA·화면·정책 항목&gt;
+영향: &lt;영향받는 화면·개발 작업, 진행·보류 범위&gt;
+결정 주체: &lt;현업 / 기획 / 개발, 모르면 확인 필요&gt;</div>
+<h3>작성 예시 · 실제 검토 결과나 확정 정책이 아닙니다</h3>
+<div class="planning-comment-template" role="group" aria-label="현업 확인 요청 예시">[기획 확인 요청] 프로모션 — 제휴카드 할인과 쿠폰 중복 적용
+대상: 주문서 화면 / 혜택 적용 정책
+현재 확인: 보고서와 IA에서 제휴카드 BIN 할인과 쿠폰 적용 화면은 확인했으나, 두 혜택을 함께 적용할 수 있는지 기준을 찾지 못했습니다.
+확인 요청: 같은 주문에 BIN 할인과 쿠폰을 함께 적용할 수 있나요? 불가하면 사용자가 고르나요, 유리한 쪽이 자동 적용되나요?
+기획 반영 위치: 혜택 적용 정책, 주문서 화면의 혜택 영역 상태
+영향: 주문서·결제 화면, 프로모션 등록 화면의 중복 설정 항목. 결정 전에는 주문서 기본 구성만 설계하고 혜택 영역은 보류합니다.
+결정 주체: 사업·운영 현업 / 실제 담당 확인 필요</div>
+<p>'기획 반영 위치'에는 결정된 내용을 어느 화면·정책에 넣을지 씁니다. "검토 부탁드립니다"처럼 범위가 불분명한 요청은 피합니다.</p>
+<h3>사람이 직접 보내거나 AI에게 요청하는 방법</h3>
+<ul><li><strong>직접 보낼 때:</strong> 팀이 쓰는 채널에 양식대로 작성하고, 같은 주제를 논의 중인 스레드가 있으면 이어서 남깁니다.</li><li><strong>AI에게 초안을 요청할 때:</strong> 대상 자료와 범위를 주고 이 양식으로 쓰게 합니다. 초안만 요청했다면 보내지 않습니다.</li><li><strong>AI에게 발송을 요청할 때:</strong> 대상·채널과 도구 권한을 확인해 보내고, 반환된 링크·ID로 결과를 확인합니다. 도구·권한이 없으면 초안을 받아 사람이 보냅니다.</li></ul>
+<p>답변 이후 기록 방법은 <a href="workflow/decisions.md#request-followup">결정 기록 기준</a>을 따릅니다. 개발 질의에 답할 때도 같은 양식을 <code>[기획 답변]</code>으로 바꿔 사용합니다.</p>
+</section><hr><section id="readiness"><h2>5. 미정 정책과 작업 범위</h2><p>업무 정책은 현업이, 화면 구성·흐름·용어는 기획이, 데이터 구조·연동 방식은 개발이 결정합니다. 결정 주체가 다른 질문은 한 요청에 섞지 않습니다.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">결정 주체</th><th scope="col">결정할 내용</th><th scope="col">예시</th></tr></thead><tbody>
+<tr><td>사업·운영 현업</td><td>판매·취소·환불·노출·승인 정책, 서비스 지속 여부</td><td>업셀링 적용 조건, 프로모션 중복 허용</td></tr>
+<tr><td>기획(PL·담당)</td><td>메뉴 구조, 화면 단위·흐름, 용어, 1차/2차 범위 제안</td><td>화면 통합 여부, 이력을 상세 탭으로 둘지</td></tr>
+<tr><td>개발·연동 담당</td><td>데이터 구조·API·외부 연동 방식, 구현 가능 여부</td><td>공급사 연동 방식, 실시간/배치 처리</td></tr>
+</tbody></table></div>
+<figure class="diagram-frame" aria-label="미정 정책과 진행 범위 판단"><div class="mermaid-rendered"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" role="img" aria-label="미정 정책과 진행 범위 판단" style="width:100%;max-width:1000px;font-family:system-ui,sans-serif">
+<defs><marker id="readiness-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#246beb"/></marker></defs>
+<path d="M220 125 H284" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#readiness-arrow)"/>
+<path d="M540 115 L614 60" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#readiness-arrow)"/>
+<text x="575" y="70" text-anchor="middle" fill="#42526e" font-size="15">아니오</text>
+<path d="M540 135 L614 190" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#readiness-arrow)"/>
+<text x="575" y="190" text-anchor="middle" fill="#42526e" font-size="15">예</text>
+<path d="M800 230 V264" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#readiness-arrow)"/>
+<rect x="20" y="90" width="200" height="70" rx="10" fill="#fff8e6" stroke="#f0c36d"/>
+<text x="120.0" y="119.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">미정 발견</text>
+<text x="120.0" y="143.0" text-anchor="middle" fill="#172b4d" font-size="15">자료·결정 확인</text>
+<rect x="290" y="90" width="250" height="70" rx="10" fill="#eef4ff" stroke="#b1c9fa"/>
+<text x="415.0" y="119.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">영향 범위 판단</text>
+<text x="415.0" y="143.0" text-anchor="middle" fill="#172b4d" font-size="15">여러 화면에 걸치는가</text>
+<rect x="620" y="20" width="360" height="70" rx="10" fill="#eaf6f1" stroke="#a8d5c1"/>
+<text x="800.0" y="49.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">독립 범위 진행</text>
+<text x="800.0" y="73.0" text-anchor="middle" fill="#172b4d" font-size="15">골격·공통 영역·다른 흐름</text>
+<rect x="620" y="160" width="360" height="70" rx="10" fill="#f4f5f7" stroke="#c1c7d0"/>
+<text x="800.0" y="189.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">해당 화면 묶음 보류</text>
+<text x="800.0" y="213.0" text-anchor="middle" fill="#172b4d" font-size="15">결정 주체·재개 조건 기록</text>
+<rect x="620" y="270" width="360" height="56" rx="10" fill="#eef4ff" stroke="#b1c9fa"/>
+<text x="800.0" y="304.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">결정 확인 후 재개·설계서 반영</text>
+</svg></div><details><summary>Mermaid 원문</summary><pre class="hljs"><code data-language="mermaid">flowchart LR
+ Q[&quot;미정 발견&lt;br/&gt;자료·결정 확인&quot;] --&gt; J{&quot;여러 화면에 걸치는가&quot;}
+ J --&gt;|아니오| G[&quot;독립 범위 진행&lt;br/&gt;골격·공통 영역·다른 흐름&quot;]
+ J --&gt;|예| H[&quot;해당 화면 묶음 보류&lt;br/&gt;결정 주체·재개 조건 기록&quot;]
+ H --&gt; R[&quot;결정 확인 후 재개·설계서 반영&quot;]</code></pre></details><figcaption>정책 하나가 미정이라고 메뉴 전체를 멈추지 않습니다. 영향 범위를 판단해 진행할 부분과 보류할 부분을 나누고 작업 기록에 남깁니다.</figcaption></figure><aside class="guide-callout guide-callout--check" aria-labelledby="readiness-check"><p class="guide-callout__title" id="readiness-check"><span class="guide-callout__badge">확인</span>상태·승인 흐름이 미정이면 여러 화면이 함께 바뀝니다</p><p>독립된 조회 화면은 먼저 설계할 수 있습니다. 반면 <strong>상태 정의나 승인 흐름 자체가 미정이면 목록·상세·등록 화면의 버튼과 노출 조건이 모두 영향을 받습니다.</strong> 이런 경우 해당 화면 묶음을 보류하고 재개 조건을 남깁니다.</p><p>결정 전 임시 가정으로 설계한 부분은 '가안'으로 표시해 확정 설계와 구분합니다.</p></aside></section><hr><section id="workflow"><h2>6. Workflow와 스킬 선택</h2><p>스킬은 요청 유형별 절차와 산출물을 정리한 작업 지침입니다. 요구·현행 분석, IA 구성·대조, 화면·정책 설계, 검수·전달의 네 역할만 둡니다.</p><figure class="diagram-frame" aria-label="기획 네 단계"><div class="mermaid-rendered"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 270" role="img" aria-label="기획 네 단계와 결정 기록" style="width:100%;max-width:1000px;font-family:system-ui,sans-serif">
+<defs><marker id="skills-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#246beb"/></marker></defs>
+<path d="M230 80 H254" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#skills-arrow)"/>
+<path d="M480 80 H504" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#skills-arrow)"/>
+<path d="M730 80 H754" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#skills-arrow)"/>
+<path d="M120 120 L420 186" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#skills-arrow)"/>
+<path d="M620 186 L700 120 " fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#skills-arrow)"/>
+<path d="M875 120 V220 H626" fill="none" stroke="#246beb" stroke-width="2" marker-end="url(#skills-arrow)"/>
+<text x="800" y="240" text-anchor="middle" fill="#42526e" font-size="15">수정 항목 반송</text>
+<rect x="10" y="40" width="220" height="80" rx="10" fill="#eef4ff" stroke="#b1c9fa"/>
+<text x="120.0" y="74.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">요구·현행 분석</text>
+<text x="120.0" y="98.0" text-anchor="middle" fill="#172b4d" font-size="15">lounge-plan-discover</text>
+<rect x="260" y="40" width="220" height="80" rx="10" fill="#eef4ff" stroke="#b1c9fa"/>
+<text x="370.0" y="74.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">IA 구성·대조</text>
+<text x="370.0" y="98.0" text-anchor="middle" fill="#172b4d" font-size="15">lounge-plan-ia</text>
+<rect x="510" y="40" width="220" height="80" rx="10" fill="#eef4ff" stroke="#b1c9fa"/>
+<text x="620.0" y="74.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">화면·정책 설계</text>
+<text x="620.0" y="98.0" text-anchor="middle" fill="#172b4d" font-size="15">lounge-plan-spec</text>
+<rect x="760" y="40" width="230" height="80" rx="10" fill="#eaf6f1" stroke="#a8d5c1"/>
+<text x="875.0" y="74.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">검수·전달</text>
+<text x="875.0" y="98.0" text-anchor="middle" fill="#172b4d" font-size="15">lounge-plan-review</text>
+<rect x="380" y="190" width="240" height="60" rx="10" fill="#fff8e6" stroke="#f0c36d"/>
+<text x="500.0" y="214.0" text-anchor="middle" fill="#172b4d" font-size="18" font-weight="700">결정 기록</text>
+<text x="500.0" y="238.0" text-anchor="middle" fill="#172b4d" font-size="15">미정·확인 요청</text>
+</svg></div><details><summary>Mermaid 원문</summary><pre class="hljs"><code data-language="mermaid">flowchart LR
+ D[&quot;요구·현행 분석&quot;] --&gt; I[&quot;IA 구성·대조&quot;] --&gt; S[&quot;화면·정책 설계&quot;] --&gt; R[&quot;검수·전달&quot;]
+ D --&gt; X[&quot;결정 기록&quot;]
+ X --&gt; S
+ R --&gt;|수정 항목 반송| X</code></pre></details><figcaption>필요한 단계만 고릅니다. 미정은 결정 기록으로 모으고, 검수에서 나온 수정은 해당 단계 산출물로 돌려보냅니다.</figcaption></figure>
+<h3 id="skill-use">스킬에 무엇을 맡기고 어떤 결과를 받는가</h3>
+<div class="table-scroll"><table><thead><tr><th scope="col">스킬</th><th scope="col">이런 요청에</th><th scope="col">받는 결과</th></tr></thead><tbody>
+<tr><td><a href="workflow/skills/lounge-plan-discover/SKILL.md"><strong>요구·현행 분석</strong></a><br><code>lounge-plan-discover</code></td><td>"현행 화면 정리해줘", "보고서에서 이 메뉴 요구만 뽑아줘"</td><td>요구 목록, 현행 화면·제외 목록, 충돌·확인 질문</td></tr>
+<tr><td><a href="workflow/skills/lounge-plan-ia/SKILL.md"><strong>IA 구성·대조</strong></a><br><code>lounge-plan-ia</code></td><td>"AS-IS랑 TO-BE IA 대조해줘", "두 버전에서 바뀐 화면 찾아줘"</td><td>대조표, 판정별 건수·신뢰도, 누락 후보 처리 방향, 품질 이슈</td></tr>
+<tr><td><a href="workflow/skills/lounge-plan-spec/SKILL.md"><strong>화면·정책 설계</strong></a><br><code>lounge-plan-spec</code></td><td>"화면설계서 초안 잡아줘", "취소 정책 정의해줘"</td><td>화면설계서, 정책 정의·상태 전이표, 확인 요청 초안</td></tr>
+<tr><td><a href="workflow/skills/lounge-plan-review/SKILL.md"><strong>검수·전달</strong></a><br><code>lounge-plan-review</code></td><td>"개발에 넘기기 전에 점검해줘", "IA 바뀐 거 영향 봐줘"</td><td>항목별 검수 결과, 결함·미정·개선 제안, 전달 범위</td></tr>
+</tbody></table></div>
+<h3 id="skill-example">하나의 메뉴가 네 단계를 지나는 예시</h3>
+<p>가상의 'BO 쿠폰 일괄 발급' 사례입니다. 실제 요구·정책·검토 결과가 아닙니다.</p>
+<ol><li><strong>요구·현행 분석:</strong> 회의록에서 "쿠폰 일괄 발급을 엑셀로 수기 처리한다"는 운영 의견을 찾습니다. 현행 IA에는 화면이 없으므로 요구 후보로 올리고, 1차 포함 여부를 현업 확인 질문으로 남깁니다.</li><li><strong>IA 구성·대조:</strong> 현업이 1차 포함을 확인하면 TO-BE IA에 등록·결과 조회 화면을 추가하고 ID를 부여합니다. 기존 쿠폰 원장 화면과 중복 정의되지 않았는지 확인합니다.</li><li><strong>화면·정책 설계:</strong> 업로드 양식·검증 오류·부분 실패 처리를 설계합니다. 발급 후 취소 가능 여부가 미정이면 결과 화면의 취소 버튼만 보류하고 나머지는 진행합니다.</li><li><strong>검수·전달:</strong> 요구 목록·IA·설계서가 서로 맞는지 확인하고, 취소 영역은 '결정 필요'로 표시해 개발에 전달합니다.</li></ol>
+</section><hr><section id="verification"><h2>7. 검수·전달·변경 관리</h2>
+<p>검수는 산출물 사이가 서로 맞는지 확인하는 단계입니다. 아래 항목을 이번 범위에 맞게 선택하고, 결과를 <strong>Pass / Fail / Not Run / N/A</strong>로 남깁니다.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">검수 항목</th><th scope="col">확인 방법</th></tr></thead><tbody>
+<tr><td>요구 반영</td><td>요구 목록의 각 항목이 IA 화면이나 정책에 연결되는가</td></tr>
+<tr><td>IA 일치</td><td>IA 화면 ID·화면명과 설계서 화면 목록이 같은가</td></tr>
+<tr><td>정책 일관성</td><td>같은 정책이 화면마다 다르게 쓰이지 않았는가</td></tr>
+<tr><td>상태·예외</td><td>오류·빈 상태·권한 없음·개인정보 표시가 정의됐는가</td></tr>
+<tr><td>미정 정리</td><td>결정 필요 항목에 결정 주체·재개 조건이 있는가</td></tr>
+</tbody></table></div>
+<p>진행 상태는 <code>Todo / In Progress / Review / Done / Blocked</code>로 남깁니다. 개발에 넘기는 범위는 <strong>확정 / 가안 / 결정 필요</strong>로 나누고, 확정된 IA·설계서를 바꾸면 변경 이력(일자·화면 ID·내용·사유·요청자)을 남겨 영향받는 개발·QA 작업에 알립니다.</p>
+<aside class="guide-callout guide-callout--check" aria-labelledby="completion-check"><p class="guide-callout__title" id="completion-check"><span class="guide-callout__badge">확인</span>결정 필요 항목이 열려 있으면 완료로 표시하지 않습니다</p><p><code>Done</code>은 작업 카드에 적은 범위의 완료입니다. <strong>기획 검수 통과·현업 승인·개발 반영</strong>을 구분합니다.</p><p><a href="workflow/task-template.md">작업 기록</a>에 산출물 위치·버전, 검수 결과, 남은 결정과 다음 담당을 남깁니다.</p></aside></section><hr><section id="harness"><h2>8. 개인 하네스 연결</h2>
+<p>각자 사용하는 AI 도구에 엑셀·PPT 읽기, Figma 연결, 결과 파일 저장을 연결합니다. 공용 가이드는 파일을 직접 읽는 방식으로 시작하면 됩니다. 자동 등록은 개인 환경에서 구성하고, 복사해서 쓸 때는 폴더 구조와 상대 경로를 유지합니다. 작은 실제 작업 하나로 자료 읽기부터 결과 기록까지 이어지는지 확인합니다.</p>
+<p>고객사 내부 문서·운영 화면 캡처·담당자 정보처럼 외부 공유가 제한된 자료는 공개 저장소나 개인 클라우드에 올리지 않습니다. 가이드 저장소에는 양식과 일반 기준만 두고, 실제 자료는 공유 위치의 링크로 연결합니다.</p>
+<aside class="guide-callout guide-callout--warning" aria-labelledby="harness-check-title"><p class="guide-callout__title" id="harness-check-title"><span class="guide-callout__badge">사용 시 주의</span>지침과 스킬은 실제 작업에서 확인하며 보완해야 합니다</p>
+<p>지침과 연결 설정만으로 AI의 임의 판단이 막히거나 모든 누락이 발견된다고 보장하지 않습니다. <strong>처음 연결할 때와 AI 도구·연결·지침을 바꾼 뒤에는 작은 실제 작업으로 확인하고, 드러난 문제를 수정합니다.</strong></p>
+<ul><li>결과의 각 항목이 실제로 읽은 파일·시트·슬라이드로 연결되는지 확인합니다.</li><li>메뉴명만 보고 한 판정을 확정처럼 쓰는지, 자료를 못 읽은 것을 기획 누락으로 단정하는지 봅니다.</li><li>정책을 임의로 확정하거나 없는 화면 ID·근거를 만들면 영향받는 결과를 다시 검토하고, 자료 연결·개인 설정·공통 스킬 중 원인을 보완합니다.</li><li>이 확인은 산출물에 대한 현업 검토를 대신하지 않습니다.</li></ul>
+<p>상세 기준은 <a href="workflow/README.md#harness-check">사용 중 검증·보완</a>을 참고합니다.</p></aside>
+<p>처음 요청할 때는 도입부의 <a href="#quick-start">시작 프롬프트</a>를 사용합니다. 기록 위치와 갱신 방법은 <a href="workflow/README.md#shared-records">공유 기록·가이드 갱신 기준</a>을 따릅니다.</p></section><div id="skill-origin"><h3>참고 출처</h3><p>문서 구성·화면 테마와 작성 방식은 더라운지 <a href="https://minsukong.github.io/dev_guide/">백엔드 AI 개발 가이드</a>를 따랐고, 내용은 기획 작업(요구·현행 분석, IA 대조, 화면·정책 설계, 검수)에 맞게 새로 정리했습니다. 이 폴더 외에 외부 번들 설치는 필요하지 않습니다.</p></div></main><footer><p>더라운지 · 기획 AI 협업 가이드 (초안)</p></footer><script src="assets/js/common.js"></script></body></html>
